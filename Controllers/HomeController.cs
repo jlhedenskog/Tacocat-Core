@@ -39,10 +39,16 @@ namespace Tacocat_Core.Controllers
         [HttpPost]
         public IActionResult Solve(string userWord)
         {
-
-            var reverseWord = string.Join("", userWord.Reverse().ToArray());
-            ViewData["Result"] = reverseWord;
-            ViewData["IsPalindrome"] = userWord == reverseWord ? "success" : "fail";
+            var userWordNoSpace = userWord.Replace(" ", "").ToLower();
+            var reverseWord = string.Join("", userWordNoSpace.Reverse().ToArray());
+            if(reverseWord == userWordNoSpace)
+            {
+                ViewData["Result"] = userWord;
+            } else
+            {
+                ViewData["Result"] = string.Join("", userWord.Reverse().ToArray());
+            }
+            ViewData["IsPalindrome"] = userWordNoSpace == reverseWord ? "success" : "fail";
             return View();
         }
 

@@ -12,7 +12,7 @@
         <form asp-action="Solve">
             <div class="row">
                 <div class="col">
-                    <input type="text" name="userWord" />
+                    <input id="reverseString" type="text" name="userWord" />
                 </div>
                 <div class="col">
                     <button type="submit" class="btn btn-primary">Reverse Me</button>
@@ -50,5 +50,18 @@ else if ((string)ViewData["IsPalindrome"] == "fail")
 
     </div>
 }
+
+<script type="text/javascript">
+    document.getElementById("reverseString").addEventListener("keypress", function (evt) {
+        var character = (evt.which) ? evt.which : evt.keyCode;
+        if (character >= 97 && character <= 122 ||
+            character >= 65 && character <= 90 || character == 13 || character == 32) {
+            evt.returnValue = true;
+        }
+        else {
+            evt.returnValue = false;
+        }
+    });
+</script>
 
 
