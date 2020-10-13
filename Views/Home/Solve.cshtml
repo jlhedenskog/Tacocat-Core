@@ -39,14 +39,14 @@
 @if ((string)ViewData["IsPalindrome"] == "success")
 {
     <div>
-        <h1 class="card card-body bg-success text-center">Success!</h1>
+        <h1 class="card card-body bg-success text-center">Success! This is a palindrome!</h1>
 
     </div>
 }
 else if ((string)ViewData["IsPalindrome"] == "fail")
 {
     <div>
-        <h1 class="card card-body bg-danger text-center">You're A Failure!!</h1>
+        <h1 class="card card-body bg-danger text-center">Failure! This is not a palindrome!</h1>
 
     </div>
 }
